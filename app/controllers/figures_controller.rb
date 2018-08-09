@@ -52,8 +52,8 @@ class FiguresController < ApplicationController
   end
 
   post '/figures/:id' do
-    @figure = Figure.find_by_id(params[:id])
-    @figure.update(name: params[:figure][:name])
+    figure = Figure.find_by_id(params[:id])
+    figure.update(name: params[:figure][:name])
     title_ids = params[:figure][:title_ids]
     landmark_ids = params[:figure][:landmark_ids]
     titles = []
@@ -68,10 +68,10 @@ class FiguresController < ApplicationController
       landmarks << Landmark.find_by_id(id)
     end
   end
-  @figure.titles = titles
-  @figure.landmarks = landmarks
+  figure.titles = titles
+  figure.landmarks = landmarks
     if !params[:landmark][:name].empty?
-      @figure.landmarks << Landmark.create(name: params[:landmark][:name], year_completed: params[:landmark][:year])
+      figure.landmarks << Landmark.create(name: params[:landmark][:name], year_completed: params[:landmark][:year])
     end
     if !params[:title][:name].empty?
       @figure.titles << Title.create(name: params[:title][:name])

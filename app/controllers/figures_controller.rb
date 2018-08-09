@@ -6,11 +6,6 @@ class FiguresController < ApplicationController
     erb :'/figures/index'
   end
 
-  get '/figures/:id' do
-    @figure = Figure.find_by_id(params[:id])
-    binding.pry
-    erb :'/figures/show'
-  end
 
   get '/figures/new' do
     @titles = Title.all
@@ -40,6 +35,12 @@ class FiguresController < ApplicationController
       figure.titles << Title.create(name: params[:title][:name])
     end
     figure.save
+  end
+
+  get '/figures/:id' do
+    @figure = Figure.find_by_id(params[:id])
+    # binding.pry
+    erb :'/figures/show'
   end
 
 

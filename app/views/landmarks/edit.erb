@@ -1,3 +1,5 @@
+<%=@landmark.year_completed%>
+<%=@landmark.name%>
 <form method="post" action="/landmarks/<%=@landmark.id">
 <input type="text" name="landmark[name]" id="landmark_name"></input>
 <input type="text" name="landmark[year_completed]" id="landmark_year_completed"></input>

@@ -15,5 +15,4 @@ class LandmarksController < ApplicationController
   get '/landmarks/:id'
   @landmark = Landmark.find_by_id(params[:id])
   erb :'/landmarks/show'
-
 end

@@ -6,6 +6,9 @@ class FiguresController < ApplicationController
     erb :'/figures/index'
   end
 
+  get '/figures/:id' do
+    erb :'/figures/show'
+  end
 
   get '/figures/new' do
     @titles = Title.all

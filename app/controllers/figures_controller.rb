@@ -28,6 +28,9 @@ class FiguresController < ApplicationController
     if !params[:landmark][:name].empty? && !params[:landmark][:year].empty?
       figure.landmarks << Landmark.create(name: params[:landmark][:name], year_completed: params[:landmark][:year])
     end
+    if !params[:title][:name].empty?
+      figure.titles << Title.create(name: params[:title][:name])
+    end
     figure.save
 
   end

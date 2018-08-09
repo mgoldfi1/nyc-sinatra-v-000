@@ -1,3 +1,4 @@
+require 'pry'
 class FiguresController < ApplicationController
 
 
@@ -10,6 +11,7 @@ class FiguresController < ApplicationController
   end
 
   post '/figures' do
+    binding.pry
     figure = Figure.create(name: params[:figure][:name])
     params[:figure][:title_ids].each do |id|
       figure.titles << Title.find_by_id(id)

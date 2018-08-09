@@ -20,7 +20,7 @@ class FiguresController < ApplicationController
       figure.titles << Title.find_by_id(id)
     end
   end
-  if !landmark_ids.empty?
+  if !landmark_ids.nil? && !landmark_ids.empty?
     landmark_ids.each do |id|
       figure.landmarks << Landmark.find_by_id(id)
     end

@@ -2,7 +2,7 @@ require 'pry'
 class FiguresController < ApplicationController
 
 
-  get '/figures/' do
+  get '/figures' do
     @figures = Figures.all
     erb :'/figures/index'
   end

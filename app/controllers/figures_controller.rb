@@ -13,9 +13,12 @@ class FiguresController < ApplicationController
   post '/figures' do
     binding.pry
     figure = Figure.create(name: params[:figure][:name])
-    params[:figure][:title_ids].each do |id|
+    title_ids = params[:figure][:title_ids]
+    if !title_ids.empty?
+    title_ids.each do |id|
       figure.titles << Title.find_by_id(id)
     end
+  end
     params[:figure][:landmark_ids].each do |id|
       figure.landmarks << Landmark.find_by_id(id)
     end

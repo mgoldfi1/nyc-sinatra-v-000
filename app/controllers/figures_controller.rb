@@ -20,9 +20,11 @@ class FiguresController < ApplicationController
       figure.titles << Title.find_by_id(id)
     end
   end
-    params[:figure][:landmark_ids].each do |id|
+  if !landmark_ids.empty?
+    landmark_ids.each do |id|
       figure.landmarks << Landmark.find_by_id(id)
     end
+  end
     if !params[:landmark][:name].empty? && !params[:landmark][:year].empty?
       figure.landmarks << Landmark.create(name: params[:landmark][:name], year_completed: params[:landmark][:year])
     end

@@ -65,7 +65,7 @@ class FiguresController < ApplicationController
   end
   if !landmark_ids.nil? && !landmark_ids.empty?
     landmark_ids.each do |id|
-      figure.landmarks << Landmark.find_by_id(id)
+      landmarks << Landmark.find_by_id(id)
     end
   end
     if !params[:landmark][:name].empty?

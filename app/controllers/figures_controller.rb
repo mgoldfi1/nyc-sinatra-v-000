@@ -74,9 +74,9 @@ class FiguresController < ApplicationController
       figure.landmarks << Landmark.create(name: params[:landmark][:name], year_completed: params[:landmark][:year])
     end
     if !params[:title][:name].empty?
-      @figure.titles << Title.create(name: params[:title][:name])
+      figure.titles << Title.create(name: params[:title][:name])
     end
-    @figure.save
+    figure.save
     redirect to("/figures/#{@figure.id}")
 
   end

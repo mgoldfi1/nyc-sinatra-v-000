@@ -43,6 +43,10 @@ class FiguresController < ApplicationController
     erb :'/figures/show'
   end
 
+  get '/figures/:id/edit' do
+
+  end
+
 
 
 

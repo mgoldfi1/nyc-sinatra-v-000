@@ -57,6 +57,7 @@ class FiguresController < ApplicationController
     title_ids = params[:figure][:title_ids]
     landmark_ids = params[:figure][:landmark_ids]
     titles = []
+    landmarks = []
     if !title_ids.nil? && !title_ids.empty?
     title_ids.each do |id|
       titles << Title.find_by_id(id)
